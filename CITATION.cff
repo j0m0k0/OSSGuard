@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the OSSGuard paper listed below."
+title: "OSSGuard: A Game-Theoretic Framework for Trust and Security in Open-Source Ecosystems"
+type: software
+authors:
+  - family-names: Koushyar
+    given-names: Javad Mokhtari
+  - family-names: Guirguis
+    given-names: Mina
+  - family-names: Atia
+    given-names: George
+version: 0.1.0
+date-released: 2026-11-12
+url: "https://j0m0k0.github.io/OSSGuard/"
+repository-code: "https://github.com/j0m0k0/OSSGuard"
+preferred-citation:
+  type: inproceedings
+  authors:
+    - family-names: Koushyar
+      given-names: Javad Mokhtari
+    - family-names: Guirguis
+      given-names: Mina
+    - family-names: Atia
+      given-names: George
+  title: "OSSGuard: A Game-Theoretic Framework for Trust and Security in Open-Source Ecosystems"
+  booktitle: "Game Theory and AI for Security"
+  collection-title: "Lecture Notes in Computer Science"
+  collection-number: 17097
+  pages: "582-601"
+  publisher: Springer
+  year: 2027
+  doi: "10.1007/978-3-032-40367-4_29"
+  url: "https://doi.org/10.1007/978-3-032-40367-4_29"

@@ -1,0 +1,105 @@
+---
+title: OSSGuard research framework
+description: A game-theoretic stochastic environment and PSRO methods for open-source trust and security.
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OSSGuard is research code for modeling trust accumulation, strategic exploitation, noisy security signals, costly inspection, DQN response oracles, and PSRO in open-source ecosystems.">
+  <meta name="keywords" content="OSSGuard, open-source security, software supply-chain security, game theory, deep reinforcement learning, DQN, PSRO, GameSec 2026">
+  <meta name="citation_title" content="OSSGuard: A Game-Theoretic Framework for Trust and Security in Open-Source Ecosystems">
+  <meta name="citation_author" content="Javad Mokhtari Koushyar">
+  <meta name="citation_author" content="Mina Guirguis">
+  <meta name="citation_author" content="George Atia">
+  <meta name="citation_publication_date" content="2026-10-13">
+  <meta name="citation_doi" content="10.1007/978-3-032-40367-4_29">
+  <meta name="citation_firstpage" content="582">
+  <meta name="citation_lastpage" content="601">
+  <meta name="citation_abstract_html_url" content="https://doi.org/10.1007/978-3-032-40367-4_29">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OSSGuard research framework">
+  <meta property="og:description" content="A stochastic game and PSRO research implementation for open-source trust and security.">
+  <meta property="og:image" content="{{ '/assets/psro-deviation-gains.png' | relative_url }}">
+  {% if site.url %}<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "OSSGuard",
+    "description": "A game-theoretic framework for trust and security in open-source ecosystems.",
+    "programmingLanguage": "Python",
+    {% if site.repository %}"codeRepository": "https://github.com/{{ site.repository }}",{% endif %}
+    "citation": "https://doi.org/10.1007/978-3-032-40367-4_29",
+    "keywords": ["open-source security", "game theory", "reinforcement learning", "PSRO"]
+  }
+  </script>
+  <title>OSSGuard | Open-source trust and security research</title>
+  <style>
+    :root { color-scheme: light; --ink:#152033; --muted:#59677c; --line:#dce3ed; --blue:#3157d5; --wash:#f5f7fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { width:min(980px, calc(100% - 32px)); margin:52px auto; }
+    header, section { background:#fff; border:1px solid var(--line); border-radius:18px; padding:30px; margin-bottom:20px; box-shadow:0 8px 28px #14213a0a; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.12em; color:var(--blue); font-size:.78rem; font-weight:750; }
+    h1 { font-size:clamp(2rem,5vw,3.5rem); line-height:1.1; margin:.3em 0; letter-spacing:-.045em; }
+    h2 { margin-top:0; letter-spacing:-.025em; }
+    .lead { color:var(--muted); max-width:740px; font-size:1.12rem; }
+    .badges { display:flex; flex-wrap:wrap; gap:9px; margin:22px 0; }
+    .badge { border:1px solid var(--line); padding:4px 10px; border-radius:999px; color:#394861; font-size:.82rem; font-weight:650; background:#fbfcfe; }
+    a { color:var(--blue); }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .button { display:inline-block; background:var(--blue); color:white; border-radius:9px; padding:10px 15px; text-decoration:none; font-weight:700; }
+    .button.secondary { color:var(--blue); background:white; border:1px solid var(--line); }
+    figure { margin:0; }
+    figure img { max-width:100%; height:auto; border:1px solid var(--line); border-radius:10px; }
+    figcaption { color:var(--muted); font-size:.88rem; margin-top:9px; }
+    pre { overflow:auto; padding:16px; background:#101827; color:#ecf1fa; border-radius:10px; font-size:.88rem; }
+    footer { color:var(--muted); text-align:center; font-size:.85rem; padding:16px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">GameSec 2026 · Research implementation</div>
+    <h1>OSSGuard</h1>
+    <p class="lead">A game-theoretic framework for trust and security in open-source ecosystems. OSSGuard models privilege accumulation, strategic exploitation, noisy signals, and costly inspection, then studies robust defense with deep reinforcement learning and PSRO.</p>
+    <div class="badges"><span class="badge">Python 3.10+</span><span class="badge">DQN response oracles</span><span class="badge">Empirical-game PSRO</span><span class="badge">Seeded experiments</span></div>
+    <div class="actions">
+      <a class="button" href="https://doi.org/10.1007/978-3-032-40367-4_29">Read the paper</a>
+      <a class="button secondary" href="https://doi.org/10.1007/978-3-032-40367-4_29">Paper DOI</a>
+      {% if site.repository %}<a class="button secondary" href="https://github.com/{{ site.repository }}">Source repository</a>{% endif %}
+    </div>
+  </header>
+  <section>
+    <h2>PSRO equilibrium analysis</h2>
+    <figure>
+      <img src="{{ '/assets/psro-deviation-gains.png' | relative_url }}" alt="NashConv and contributor and maintainer deviation gains across PSRO iterations">
+      <figcaption>Deviation gains from the paper's PSRO analysis. See the repository for the experimental procedure and seeded reruns.</figcaption>
+    </figure>
+  </section>
+  <section>
+    <h2>Framework</h2>
+    <p>The contributor selects a normal contribution or exploit attempt. The maintainer observes the privilege state and a noisy clean/suspicious signal, then accepts or inspects. Detected exploits terminate the episode; other outcomes increase privilege until the finite horizon or maximum privilege is reached.</p>
+    <p>The code includes the paper's heuristic suite, DQN response oracles, fixed-pool MSS-Unif and MSS-Hard training, IBR, contributor-specific specialists, unseen-policy transfer evaluation, a signal-quality sweep, and an expanding-population PSRO procedure.</p>
+  </section>
+  <section>
+    <h2>Paper</h2>
+    <p>Javad Mokhtari Koushyar, Mina Guirguis, and George Atia. “OSSGuard: A Game-Theoretic Framework for Trust and Security in Open-Source Ecosystems.” <i>Game Theory and AI for Security</i>, Lecture Notes in Computer Science, volume 17097, pp. 582–601, 2027. GameSec 2026.</p>
+    <pre>@incollection{koushyar2027ossguard,
+  author = {Javad Mokhtari Koushyar and Mina Guirguis and George Atia},
+  title = {OSSGuard: A Game-Theoretic Framework for Trust and Security in Open-Source Ecosystems},
+  booktitle = {Game Theory and AI for Security},
+  pages = {582--601},
+  publisher = {Springer},
+  year = {2027},
+  doi = {10.1007/978-3-032-40367-4_29}
+}</pre>
+    {% if site.repository %}<p>Repository citation metadata: <a href="https://github.com/{{ site.repository }}/blob/main/CITATION.cff">CITATION.cff</a>. Experiment and installation instructions: <a href="https://github.com/{{ site.repository }}#reproducibility">README</a>.</p>{% endif %}
+  </section>
+  <footer>OSSGuard research software · Paper figure rendered with attribution · <a href="https://github.com/{{ site.repository }}/blob/main/LICENSE">MIT License</a></footer>
+</main>
+</body>
+</html>

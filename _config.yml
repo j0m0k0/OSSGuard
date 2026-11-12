@@ -1,0 +1,14 @@
+title: "OSSGuard: A Game-Theoretic Framework for Trust and Security in Open-Source Ecosystems"
+description: "Research code for the OSSGuard stochastic game, DQN response oracles, and empirical-game PSRO framework."
+lang: en
+url: "https://j0m0k0.github.io"
+baseurl: "/OSSGuard"
+repository: "j0m0k0/OSSGuard"
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+exclude:
+  - README.md
+  - pyproject.toml
+  - ossguard/
